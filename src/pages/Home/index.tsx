@@ -8,10 +8,13 @@ const Home = () => {
   return (
     <div>
       <div className="tabContainer">
-        <Tabs>
+        <Tabs defaultActiveKey={"0"}>
           {channels.map((item) => (
             <Tabs.Tab title={item.name} key={item.id}>
-              <HomeList channelId={"" + item.id} />
+              // 控制滚动盒子
+              <div className="listContainer">
+                <HomeList channelId={"" + item.id} />
+              </div>
             </Tabs.Tab>
           ))}
         </Tabs>

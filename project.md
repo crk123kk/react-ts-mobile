@@ -45,3 +45,24 @@
         alias: {
             "@": path.resolve(__dirname, "./src"),
         },
+
+# detail
+
+      // 没有数据的时候，返回一个loading的状态
+
+        if (!detail) {
+        return <div>this is loading....</div>;
+        }
+
+        // 数据返回之后，正式渲染的内容，这样可以避免数据未返回导致渲染问题
+
+        return (
+        <div>
+        <NavBar onBack={back}>{detail?.title}</NavBar>
+        <div
+        dangerouslySetInnerHTML={{
+                __html: detail?.content,
+                }} ></div>
+        </div>
+        );
+        };
